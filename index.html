@@ -1,1 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Your Name – UI designer and DevOps engineer</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap">
+<style>
+:root{
+  --bg:#EEF2F7;--surface:#FFFFFF;--ink:#14213D;--muted:#55657D;--line:#CBD5E3;
+  --accent:#2F5BFF;--accent-ink:#FFFFFF;--ok:#12805C;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif;
+  --body:"Source Sans 3","Segoe UI",system-ui,sans-serif;
+  --mono:ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1726;--surface:#17233A;--ink:#E8EEF8;--muted:#9AABC4;--line:#2A3A57;
+    --accent:#7C9BFF;--accent-ink:#0F1726;--ok:#4FD1A1;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1726;--surface:#17233A;--ink:#E8EEF8;--muted:#9AABC4;--line:#2A3A57;
+  --accent:#7C9BFF;--accent-ink:#0F1726;--ok:#4FD1A1;color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 1.5rem}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0;font-weight:700}
+h2{font-size:1.75rem;margin-bottom:1.5rem}
 
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;gap:1rem;flex-wrap:wrap}
+nav .name{font-family:var(--head);font-weight:700;text-decoration:none;font-size:1.125rem}
+nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--ink)}
+
+.hero{padding:3.5rem 0 4rem}
+.hero h1{font-size:clamp(2.4rem,6.5vw,4.5rem);letter-spacing:-0.02em;max-width:15em}
+.hero p.lead{font-size:1.25rem;color:var(--muted);max-width:34em;margin:1.5rem 0 2rem}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:8px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--ink);border-color:var(--line)}
+.btn:hover{border-color:var(--accent)}
+
+.pipeline{margin-top:3.5rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1.5rem}
+.pipeline ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.pipeline li{position:relative;padding:0 1rem 0 0;opacity:.35;transition:opacity .4s}
+.pipeline li::before{content:"";display:block;height:4px;background:var(--line);border-radius:2px;margin-bottom:1rem;transition:background .4s}
+.pipeline li.on{opacity:1}
+.pipeline li.on::before{background:var(--ok)}
+.pipeline strong{display:block;font-family:var(--head);font-size:1.2rem}
+.pipeline small{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+.pipeline .status{margin:1.25rem 0 0;font-family:var(--mono);font-size:.85rem;color:var(--muted);min-height:1.4em}
+.pipeline .status.done{color:var(--ok)}
+
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+.filters{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap}
+.filters button{font:600 .95rem var(--body);color:var(--ink);background:transparent;border:2px solid var(--line);border-radius:999px;padding:.35rem 1rem;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.work{list-style:none;margin:0;padding:0}
+.work li{display:grid;grid-template-columns:1fr 1.6fr;gap:.5rem 2rem;padding:1.5rem 0;border-top:1px solid var(--line)}
+.work li[hidden]{display:none}
+.work h3{font-size:1.35rem}
+.work .kind{display:block;margin-top:.35rem;font-size:.95rem;color:var(--muted)}
+.work p{margin:0}
+.work .stack{margin-top:.5rem;font-family:var(--mono);font-size:.85rem;color:var(--muted)}
+
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.skills h3{font-size:1.2rem;margin-bottom:.75rem}
+.skills ul{margin:0;padding-left:1.1rem;color:var(--muted)}
+.about{max-width:38em}
+.about p{margin:0 0 1rem}
+.contact a.mail{font-family:var(--head);font-weight:700;font-size:clamp(1.4rem,4vw,2.2rem);color:var(--accent)}
+.contact ul{list-style:none;margin:1.25rem 0 0;padding:0;display:flex;gap:1.5rem;flex-wrap:wrap}
+footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+
+@media (max-width:700px){
+  .pipeline ol{grid-template-columns:1fr 1fr;row-gap:1.25rem}
+  .work li{grid-template-columns:1fr}
+  .skills{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .pipeline li,.pipeline li::before{transition:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="name" href="#top">Your Name</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <h1>I design interfaces, then build the pipeline that ships them.</h1>
+    <p class="lead">UI designer and DevOps engineer. I work on products where the screen and the system behind it need to agree.</p>
+    <div class="btns">
+      <a class="btn primary" href="#work">See my work</a>
+      <a class="btn ghost" href="mailto:you@example.com">Email me</a>
+    </div>
+
+    <div class="pipeline" aria-label="How I work, from design to release">
+      <ol id="stages">
+        <li><strong>Design</strong><small>Figma</small></li>
+        <li><strong>Review</strong><small>Pull request</small></li>
+        <li><strong>Build</strong><small>CI pipeline</small></li>
+        <li><strong>Ship</strong><small>Kubernetes</small></li>
+      </ol>
+      <p class="status" id="status" role="status">Starting pipeline…</p>
+    </div>
+  </header>
+
+  <section id="work">
+    <h2>Selected work</h2>
+    <div class="filters" role="group" aria-label="Filter projects">
+      <button type="button" data-f="all" aria-pressed="true">All</button>
+      <button type="button" data-f="ui" aria-pressed="false">UI design</button>
+      <button type="button" data-f="devops" aria-pressed="false">DevOps</button>
+    </div>
+    <ul class="work" id="work-list">
+      <li data-k="ui">
+        <div><h3>Billing dashboard redesign</h3><span class="kind">UI design</span></div>
+        <div><p>Rebuilt the invoice and usage screens for a SaaS product so customers can find and fix billing problems without contacting support.</p><p class="stack">Figma, user testing, accessibility review</p></div>
+      </li>
+      <li data-k="ui">
+        <div><h3>Design system in code</h3><span class="kind">UI design</span></div>
+        <div><p>A token-based component library shared by several product teams, documented so designers and developers use the same names.</p><p class="stack">Figma, Storybook, design tokens</p></div>
+      </li>
+      <li data-k="devops">
+        <div><h3>Zero-downtime deploys</h3><span class="kind">DevOps</span></div>
+        <div><p>Moved a monolith from manual releases to an automated pipeline with blue-green deploys, so releases no longer need a maintenance window.</p><p class="stack">GitHub Actions, Docker, Kubernetes</p></div>
+      </li>
+      <li data-k="devops">
+        <div><h3>Infrastructure as code</h3><span class="kind">DevOps</span></div>
+        <div><p>Terraform modules for staging and production environments, with dashboards and alerts that show problems before users do.</p><p class="stack">Terraform, AWS, Grafana</p></div>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div>
+        <h3>Design</h3>
+        <ul><li>Interface and interaction design</li><li>Design systems</li><li>Prototyping</li><li>Accessibility</li><li>User research</li></ul>
+      </div>
+      <div>
+        <h3>DevOps</h3>
+        <ul><li>CI/CD pipelines</li><li>Containers and Kubernetes</li><li>Infrastructure as code</li><li>Cloud platforms</li><li>Monitoring and alerting</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <div class="about">
+      <p>I started in interface design and moved into infrastructure because I kept seeing good designs ship late or break in production. Doing both means I can design something and also get it to users reliably.</p>
+      <p>I’m based in Quezon City, Philippines, and open to remote work and freelance projects.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Let’s work together</h2>
+    <a class="mail" href="mailto:you@example.com">you@example.com</a>
+    <ul>
+      <li><a href="https://github.com/your-username">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/your-username">LinkedIn</a></li>
+      <li><a href="https://www.behance.net/your-username">Behance</a></li>
+    </ul>
+  </section>
+
+  <footer>© 2026 Your Name</footer>
+</div>
+
+<script>
+(function(){
+  var stages=document.querySelectorAll('#stages li');
+  var status=document.getElementById('status');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function finish(){status.textContent='All checks passed. Ready to ship.';status.className='status done';}
+  if(reduce){stages.forEach(function(s){s.classList.add('on')});finish();}
+  else{
+    stages.forEach(function(s,i){
+      setTimeout(function(){s.classList.add('on');status.textContent='Running: '+s.querySelector('strong').textContent.toLowerCase()+'…';},500+i*600);
+    });
+    setTimeout(finish,500+stages.length*600);
+  }
+
+  var btns=document.querySelectorAll('.filters button');
+  var items=document.querySelectorAll('#work-list li');
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){
+      btns.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+      var f=b.getAttribute('data-f');
+      items.forEach(function(li){li.hidden=!(f==='all'||li.getAttribute('data-k')===f)});
+    });
+  });
+})();
+</script>
+</body>
+  </html>
