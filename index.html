@@ -373,4 +373,25 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       var s=stars[i];
       var x=mod(s.x+(reduce?0:t*0.008*s.z)-cx*50*s.z,W);
       var y=mod(s.y-sy*0.4*s.z+(reduce?0:t*0.004*s.z)-cy*50*s.z,H);
-      var tw=reduce?1:.65+.35*Math.sin(t*0.002+s.p
+      var tw=reduce?1:.65+.35*Math.sin(t*0.002+s.p);
+      ctx.globalAlpha=tw*(.35+s.z*.65);
+      ctx.fillStyle=s.z>.85?'#BFD0FF':'#FFFFFF';
+      ctx.beginPath();ctx.arc(x,y,s.r,0,6.283);ctx.fill();
+    }
+    ctx.globalAlpha=1;
+    nebula.style.transform='translate3d(0,'+(-sy*0.08)+'px,0)';
+    var max=root.scrollHeight-H;
+    prog.style.setProperty('--p',max>0?Math.min(1,sy/max):0);
+  }
+  function loop(t){draw(t);requestAnimationFrame(loop)}
+  size();
+  if(fine&&!reduce){
+    window.addEventListener('pointermove',function(e){tx=e.clientX/W-.5;ty=e.clientY/H-.5},{passive:true});
+  }
+  window.addEventListener('resize',function(){size();draw(0)});
+  if(reduce){draw(0);window.addEventListener('scroll',function(){draw(0)},{passive:true})}
+  else requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
