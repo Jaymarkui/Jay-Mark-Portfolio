@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Your Name – UI designer and DevOps engineer</title>
+<title>Your Name – UI/UX designer and DevOps</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Sans+3:wght@400;600&display=swap">
 <style>
 :root{
@@ -70,6 +70,9 @@ nav ul a:hover{color:var(--ink)}
 .pipeline .status.done{color:var(--ok)}
 
 section{padding:3.5rem 0;border-top:1px solid var(--line)}
+.about{max-width:38em}
+.about p{margin:0 0 1.1rem;color:var(--muted)}
+.about p.intro{font-family:var(--head);font-weight:500;font-size:clamp(1.3rem,3.2vw,1.7rem);line-height:1.35;color:var(--ink)}
 .work{list-style:none;margin:0;padding:0}
 .work li{display:grid;grid-template-columns:1fr 1.6fr;gap:.5rem 2rem;padding:1.5rem 0}
 .work h3{font-size:1.35rem}
@@ -78,10 +81,6 @@ section{padding:3.5rem 0;border-top:1px solid var(--line)}
 .work .stack{margin-top:.5rem;font-family:var(--mono);font-size:.85rem;color:var(--muted)}
 .shots{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;margin-top:1rem}
 .shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--line)}
-
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem 2rem;max-width:40em;margin:0}
-.facts dt{color:var(--muted);font-size:.95rem}
-.facts dd{margin:.15rem 0 0;font-family:var(--head);font-size:1.35rem;font-weight:500}
 
 .skills{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
 .skills h3{font-size:1.2rem;margin-bottom:.75rem}
@@ -97,7 +96,6 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
   .photo{max-width:260px}
   .pipeline ol{grid-template-columns:1fr 1fr;row-gap:1.25rem}
   .work li{grid-template-columns:1fr}
-  .facts{grid-template-columns:1fr}
   .skills{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){
@@ -125,7 +123,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
     <div class="hero-grid">
       <div>
         <h1>I design interfaces, then build the pipeline that ships them.</h1>
-        <p class="lead">UI designer and DevOps engineer. I work on products where the screen and the system behind it need to agree.</p>
+        <p class="lead">UI/UX designer and DevOps. I work on products where the screen and the system behind it need to agree.</p>
         <div class="btns">
           <a class="btn primary" href="#work">See my projects</a>
           <a class="btn ghost" href="mailto:you@example.com">Email me</a>
@@ -150,12 +148,12 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
 
   <section id="about">
     <h2>About me</h2>
-    <dl class="facts">
-      <div><dt>Name</dt><dd>Your Name</dd></div>
-      <div><dt>Course</dt><dd>Your course</dd></div>
-      <div><dt>Year</dt><dd>4th year</dd></div>
-      <div><dt>School</dt><dd>ICCT Colleges</dd></div>
-    </dl>
+    <div class="about">
+      <p class="intro">Hi, I’m Jay-Mark Gallardo, a 4th year Your course student at ICCT Colleges. I’m a UI/UX designer who also works in DevOps.</p>
+      <p>As a UI/UX designer, I design clear, easy-to-use screens that people can understand quickly, from the first sketch to a finished interface.</p>
+      <p>In DevOps, I work on the tools and automation that build, test, and release software so it runs reliably for the people using it.</p>
+      <p>I like doing both because a good design only helps if it reaches users and keeps working. One project I’ve worked on is AlertNet PH, a disaster alert system you can see below.</p>
+    </div>
   </section>
 
   <section id="work">
