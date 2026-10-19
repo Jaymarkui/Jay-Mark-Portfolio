@@ -524,7 +524,6 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
   document.querySelectorAll('.foot a').forEach(function(a){
     if(a.getAttribute('href')==='#'){
       a.removeAttribute('href');
-      a.textContent='Repository link to be added';
       var ar=a.parentNode.querySelector('span');
       if(ar)ar.hidden=true;
     }
