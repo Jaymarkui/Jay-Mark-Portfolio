@@ -119,6 +119,20 @@ section{padding:3.5rem 0;border-top:1px solid var(--line)}
 .foot a{text-decoration:none}
 .foot a:hover{color:var(--ink)}
 .foot span{color:#FF7A8A}
+.foot a[href]{color:var(--accent);font-weight:600}
+.media.has-gallery{cursor:zoom-in}
+.more{position:absolute;right:1rem;bottom:1rem;z-index:2;padding:.4rem .75rem;border:1px solid var(--line);border-radius:10px;background:rgba(10,16,36,.75);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;pointer-events:none}
+.media.empty .more{display:none}
+
+/* Experience */
+.timeline{list-style:none;margin:0;padding:0 0 0 1.75rem;position:relative}
+.timeline::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--accent),var(--violet),transparent)}
+.timeline li{position:relative;margin:0 0 1.25rem;padding:1.25rem;background:var(--surface);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:14px}
+.timeline li::before{content:"";position:absolute;left:-29px;top:1.6rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 14px rgba(124,155,255,.6)}
+.timeline .when{font-family:var(--mono);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--violet)}
+.timeline h3{font-size:1.4rem;margin:.35rem 0 .25rem}
+.timeline .where{margin:0;color:var(--muted)}
+.timeline .where b{color:var(--ink);font-weight:600}
 
 /* Certificates */
 .note{color:var(--muted);margin:-.75rem 0 1.5rem}
@@ -135,6 +149,11 @@ section{padding:3.5rem 0;border-top:1px solid var(--line)}
 .lightbox[hidden]{display:none}
 .lightbox img{max-width:min(100%,1000px);max-height:78vh;border-radius:10px;box-shadow:0 0 60px rgba(90,120,255,.3)}
 .lightbox p{margin:0;font-family:var(--head);font-size:1.2rem;text-align:center}
+.lb-nav{position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer}
+.lb-nav[hidden]{display:none}
+.lb-prev{left:.75rem}
+.lb-next{right:.75rem}
+.lb-count{font-family:var(--mono);font-size:.8rem;letter-spacing:.12em;color:var(--muted)}
 .lb-close{position:absolute;top:max(1rem,env(safe-area-inset-top,0px));right:1rem;width:44px;height:44px;border-radius:50%;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:1.6rem;line-height:1;cursor:pointer}
 
@@ -199,6 +218,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       <li><a href="#about">About</a></li>
       <li><a href="#work">Projects</a></li>
       <li><a href="#certificates">Certificates</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -211,7 +231,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
         <p class="lead rv">UI/UX designer and DevOps. I work on products where the screen and the system behind it need to agree.</p>
         <div class="btns rv">
           <a class="btn primary" href="#work">See my projects</a>
-          <a class="btn ghost" href="mailto: justinemaeallen28@gmail.com">Email me</a>
+          <a class="btn ghost" href="mailto:justinemaeallen28@gmail.com">Email me</a>
         </div>
       </div>
       <div class="photo-wrap rv">
@@ -248,7 +268,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
     <div class="cards">
 
       <article class="card rv">
-        <div class="media">
+        <div class="media" data-gallery="LibraryManagement.jpg,LibraryManagement-2.jpg,LibraryManagement-3.jpg,LibraryManagement-4.jpg">
           <img src="LibraryManagement.jpg" alt="Library Management System screenshot">
           <span class="ph"></span>
           <b class="badge">Project 1</b>
@@ -259,11 +279,12 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
           <p class="sub">Library Management System</p>
           <p class="desc">A library management system for keeping track of books and records.</p>
           <ul class="chips"><li>Books</li><li>Records</li></ul>
+          <div class="foot"><a href="#" target="_blank" rel="noopener">Repository (code files)</a><span>↗</span></div>
         </div>
       </article>
 
       <article class="card rv">
-        <div class="media">
+        <div class="media" data-gallery="received_1122719289943840.jpeg,received_842425114810148.jpeg,AlertNet-3.jpg,AlertNet-4.jpg">
           <img src="received_1122719289943840.jpeg" alt="AlertNet PH login screen with email and password fields">
           <span class="ph"></span>
           <b class="badge">Project 2</b>
@@ -274,6 +295,7 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
           <p class="sub">Disaster &amp; Risk Management System</p>
           <p class="desc">A disaster and risk management system for the Philippines. People see alerts for incoming disasters, marked Watch or Warning, and find emergency contacts and preparedness tips in one place.</p>
           <ul class="chips"><li>Alerts</li><li>Emergency contacts</li><li>Guides</li><li>Map</li><li>Quiz</li></ul>
+          <div class="foot"><a href="#" target="_blank" rel="noopener">Repository (code files)</a><span>↗</span></div>
         </div>
       </article>
 
@@ -298,6 +320,23 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
         <figcaption>Advancing Research and Development in IoT for Smart Environments</figcaption>
       </figure>
     </div>
+  </section>
+
+  <section id="experience">
+    <h2 data-split>Experience</h2>
+    <p class="note">The projects I made, the year, and the school.</p>
+    <ol class="timeline">
+      <li class="rv">
+        <span class="when">Add year</span>
+        <h3>Library Management</h3>
+        <p class="where"><b>ICCT Colleges</b> · Add school year</p>
+      </li>
+      <li class="rv">
+        <span class="when">Add year</span>
+        <h3>AlertNet PH</h3>
+        <p class="where"><b>ICCT Colleges</b> · Add school year</p>
+      </li>
+    </ol>
   </section>
 
   <section id="skills">
@@ -330,16 +369,19 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
 
   <section id="hire" class="contact center">
     <h2 data-split>Let’s work together</h2>
-    <a class="mail rv" href="mailto: justinemaeallen28@gmail.com">justinemaeallen28@gmail.com</a>
+    <a class="mail rv" href="mailto:justinemaeallen28@gmail.com">justinemaeallen28@gmail.com</a>
   </section>
 
   <footer>© 2026 Jay-Mark</footer>
 </div>
 
-<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Certificate preview">
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Picture viewer">
   <button type="button" class="lb-close" aria-label="Close">×</button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Previous picture" hidden>‹</button>
+  <button type="button" class="lb-nav lb-next" aria-label="Next picture" hidden>›</button>
   <img alt="">
   <p></p>
+  <span class="lb-count"></span>
 </div>
 
 <script>
@@ -391,9 +433,56 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
   img.addEventListener('error',noPhoto);
   if(img.complete&&img.naturalWidth===0)noPhoto();
 
-  /* Project photos: show a note when a photo file is missing */
+  /* Picture viewer (project photos and certificates) */
+  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
+  var lbCount=lb.querySelector('.lb-count'),lbPrev=lb.querySelector('.lb-prev'),lbNext=lb.querySelector('.lb-next');
+  var pics=[],pi=0;
+  function showPic(){
+    var p=pics[pi],many=pics.length>1;
+    lbImg.src=p.src;lbImg.alt=p.alt;lbCap.textContent=p.cap;
+    lbPrev.hidden=!many;lbNext.hidden=!many;
+    lbCount.textContent=many?(pi+1)+' / '+pics.length:'';
+  }
+  function openLb(list,start){
+    pics=list;pi=start||0;showPic();
+    lb.hidden=false;
+    lb.querySelector('.lb-close').focus();
+  }
+  function closeLb(){lb.hidden=true;lbImg.removeAttribute('src')}
+  function go(n){if(pics.length>1){pi=(pi+n+pics.length)%pics.length;showPic()}}
+  lb.addEventListener('click',function(e){
+    if(e.target===lb||e.target.classList.contains('lb-close'))closeLb();
+  });
+  lbPrev.addEventListener('click',function(){go(-1)});
+  lbNext.addEventListener('click',function(){go(1)});
+  document.addEventListener('keydown',function(e){
+    if(lb.hidden)return;
+    if(e.key==='Escape')closeLb();
+    else if(e.key==='ArrowLeft')go(-1);
+    else if(e.key==='ArrowRight')go(1);
+  });
+  var sx=0;
+  lb.addEventListener('touchstart',function(e){sx=e.changedTouches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){
+    var d=e.changedTouches[0].clientX-sx;
+    if(Math.abs(d)>50)go(d<0?1:-1);
+  },{passive:true});
+
+  /* Project photos: note when a file is missing, click to see all pictures */
+  function probe(urls,done){
+    var out=[],left=urls.length;
+    function fin(){left--;if(left===0)done(out.filter(Boolean))}
+    if(!left){done([]);return}
+    urls.forEach(function(u,n){
+      var im=new Image();
+      im.onload=function(){out[n]=u;fin()};
+      im.onerror=fin;
+      im.src=u;
+    });
+  }
   document.querySelectorAll('.media').forEach(function(m){
     var imgs=m.querySelectorAll('img'),ph=m.querySelector('.ph');
+    var title=m.parentNode.querySelector('h3').textContent;
     var names=[].map.call(imgs,function(i){return i.getAttribute('src')}).join(' and ');
     ph.textContent='Add your photo: upload '+names+' to this repository';
     function check(){
@@ -405,11 +494,43 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
       i.addEventListener('error',bad);
       if(i.complete&&i.naturalWidth===0)bad();
     });
+    var list=(m.getAttribute('data-gallery')||'').split(',').map(function(s){return s.trim()}).filter(Boolean);
+    if(!list.length)list=[].map.call(imgs,function(i){return i.getAttribute('src')});
+    var found=[];
+    probe(list,function(ok){
+      found=ok;
+      if(ok.length){
+        m.classList.add('has-gallery');
+        m.tabIndex=0;
+        m.setAttribute('role','button');
+        m.setAttribute('aria-label','View pictures of '+title);
+        var more=document.createElement('b');
+        more.className='more';
+        more.textContent=ok.length>1?'View '+ok.length+' photos':'View photo';
+        m.appendChild(more);
+      }
+    });
+    function openGallery(){
+      if(!found.length)return;
+      openLb(found.map(function(u,n){return{src:u,alt:title+', photo '+(n+1),cap:title}}),0);
+    }
+    m.addEventListener('click',openGallery);
+    m.addEventListener('keydown',function(e){
+      if(e.key==='Enter'||e.key===' '){e.preventDefault();openGallery()}
+    });
+  });
+
+  /* Repository links: show a note until a real link is added */
+  document.querySelectorAll('.foot a').forEach(function(a){
+    if(a.getAttribute('href')==='#'){
+      a.removeAttribute('href');
+      a.textContent='Repository link to be added';
+      var ar=a.parentNode.querySelector('span');
+      if(ar)ar.hidden=true;
+    }
   });
 
   /* Certificates: alt text from the name, missing-photo note, larger view */
-  var lb=document.getElementById('lightbox'),lbImg=lb.querySelector('img'),lbCap=lb.querySelector('p');
-  function closeLb(){lb.hidden=true;lbImg.removeAttribute('src')}
   document.querySelectorAll('.cert').forEach(function(c){
     var b=c.querySelector('.cert-btn'),i=b.querySelector('img'),ph=b.querySelector('.ph');
     var cap=c.querySelector('figcaption').textContent;
@@ -420,13 +541,9 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
     if(i.complete&&i.naturalWidth===0)bad();
     b.addEventListener('click',function(){
       if(b.classList.contains('empty'))return;
-      lbImg.src=i.src;lbImg.alt=i.alt;lbCap.textContent=cap;
-      lb.hidden=false;
-      lb.querySelector('.lb-close').focus();
+      openLb([{src:i.src,alt:i.alt,cap:cap}],0);
     });
   });
-  lb.addEventListener('click',closeLb);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!lb.hidden)closeLb()});
 
   /* Message form */
   var form=document.getElementById('msgform'),fstatus=document.getElementById('formstatus');
@@ -653,3 +770,4 @@ footer{padding:2rem 0 3rem;color:var(--muted);font-size:.9rem;border-top:1px sol
 </script>
 </body>
 </html>
+        
