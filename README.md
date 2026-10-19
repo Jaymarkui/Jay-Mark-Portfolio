@@ -3,6 +3,7 @@
 A personal portfolio website for a UI/UX designer and DevOps student. It introduces me, shows the projects I work on, my seminar certificates, and my experience, and lets visitors send me a message.
 
 **Live site:** https://github.com/Jaymarkui
+**My Portfolio** https://jaymarkui.github.io/Jay-Mark-Portfolio/
 
 ## About me
 
